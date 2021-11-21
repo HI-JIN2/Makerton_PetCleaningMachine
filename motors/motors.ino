@@ -1,30 +1,37 @@
+#define M1 13
+#define M2 11
+#define M3 12
 
 void setup() {
-  pinMode(9, OUTPUT);
-  pinMode(8, OUTPUT);
-  pinMode(4, OUTPUT);
-  pinMode(5, OUTPUT);
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
+  pinMode(M1, OUTPUT);
+  pinMode(M2, OUTPUT);
+  pinMode(M3, OUTPUT);
 }
 
 void loop() {
+//  for (int i = 0; i < 5; ++i) {
+//    digitalWrite(M1, HIGH);
+//    digitalWrite(M2, HIGH);
+//    digitalWrite(M3, LOW);
+//    delay(1000);
+//
+//    digitalWrite(M1, HIGH);
+//    digitalWrite(M2, HIGH);
+//    digitalWrite(M3, HIGH);
+//    delay(1000);
+//
+//    digitalWrite(M1, HIGH);
+//    digitalWrite(M2, LOW);
+//    digitalWrite(M3, HIGH);
+//    delay(1000);
+//
+//    digitalWrite(M1, HIGH);
+//    digitalWrite(M2, HIGH);
+//    digitalWrite(M3, HIGH);
+//    delay(1000);
+//  }
 
-  digitalWrite(4, HIGH);
-  digitalWrite(9, HIGH);
-  digitalWrite(8, LOW);
-  delay(3000);
-  digitalWrite(4, HIGH);
-  digitalWrite(AA, HIGH);
-  digitalWrite(AB, HIGH);
-  delay(3000);
-
-  digitalWrite(5, HIGH);
-  digitalWrite(6, HIGH);
-  digitalWrite(7, LOW);
-  delay(3000);
-  digitalWrite(5, HIGH);
-  digitalWrite(6, LOW);
-  digitalWrite(7, LOW);
-  delay(3000);
+  digitalWrite(M1, HIGH);
+  digitalWrite(M2, HIGH);
+  digitalWrite(M3, HIGH);
 }

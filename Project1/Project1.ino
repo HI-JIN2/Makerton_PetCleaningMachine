@@ -4,14 +4,14 @@
 #define BUTTON 13 // 13번 포트 : 버튼
 
 // 세척용 모터를 위한 포트
-#define M1 4
-#define M2 5
-#define M3 6
+#define M1 5
+#define M2 6
+#define M3 7
 
 // 물 주입을 위한 포트
-#define W1 1
-#define W2 2
-#define W3 3
+#define W1 8
+#define W2 9
+#define W3 10
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); // lcd 생성
 
@@ -45,10 +45,15 @@ void loop() {
     lcd.print("Water!!");
 
     digitalWrite(W1, HIGH);
-    digitalWrite(W2, HIGH);
-    digitalWrite(W3, LOW);
-    delay(25000);
+    digitalWrite(W2, LOW);
+    digitalWrite(W3, HIGH);
+    
+    delay(11000);
     lcd.clear();
+
+    digitalWrite(W1, HIGH);
+    digitalWrite(W2, HIGH);
+    digitalWrite(W3, HIGH);
 
     // 시계 & 반시계 방향으로 회전하면서 세척
     // 총 10번의 과정을 반복함
@@ -56,33 +61,40 @@ void loop() {
     lcd.print("Cleaning");
     lcd.setCursor(0, 1);
     lcd.print("the Pet!!!");
-
+    
     for (int i = 0; i < 5; ++i) {
-      digitalWrite(4, HIGH);
-      digitalWrite(5, HIGH);
-      digitalWrite(6, LOW);
+      digitalWrite(M1, HIGH);
+      digitalWrite(M2, HIGH);
+      digitalWrite(M3, LOW);
       delay(1000);
 
-      digitalWrite(4, HIGH);
-      digitalWrite(5, HIGH);
-      digitalWrite(6, HIGH);
+      digitalWrite(M1, HIGH);
+      digitalWrite(M2, HIGH);
+      digitalWrite(M3, HIGH);
       delay(1000);
 
-      digitalWrite(4, HIGH);
-      digitalWrite(5, LOW);
-      digitalWrite(6, HIGH);
+      digitalWrite(M1, HIGH);
+      digitalWrite(M2, LOW);
+      digitalWrite(M3, HIGH);
       delay(1000);
 
-      digitalWrite(4, HIGH);
-      digitalWrite(5, HIGH);
-      digitalWrite(6, HIGH);
+      digitalWrite(M1, HIGH);
+      digitalWrite(M2, HIGH);
+      digitalWrite(M3, HIGH);
       delay(1000);
     }
+    
+    lcd.clear();
+
+    digitalWrite(M1, HIGH);
+    digitalWrite(M2, HIGH);
+    digitalWrite(M3, HIGH);
+
+    lcd.setCursor(0, 0);
+    lcd.print("Finished!!");
+
+    delay(5000);
+
+    lcd.clear();
   }
-
-  lcd.print("Finished!!");
-
-  delay(5000);
-
-  lcd.clear();
 }
